@@ -44,12 +44,12 @@ form.addEventListener('submit', async (e) => {
   try {
     if (editMode) {
       // Modificar Registro
-      const { error } = await supabase.from('componentes').update(payload).eq('id', id);
+      const { error } = await supabaseClient.from('componentes').update(payload).eq('id', id);
       if (error) throw error;
       alert('Registro actualizado con éxito.');
     } else {
       // Alta de Registro
-      const { error } = await supabase.from('componentes').insert([payload]);
+      const { error } = await supabaseClient.from('componentes').insert([payload]);
       if (error) throw error;
       alert('Registro creado con éxito.');
     }
