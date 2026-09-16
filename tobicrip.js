@@ -1,8 +1,7 @@
 // Configuración de Supabase
-const SUPABASE_URL = "https://TU-PROYECTO.supabase.co";
-const SUPABASE_ANON_KEY = "TU-ANON-KEY-AQUI";
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
+const SUPABASE_URL = "https://lshaqhhnioddbmwkyjfn.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_fbou9WczRI4lCvTykg_mMw_DvD5QE9U";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // Referencias del DOM
 const form = document.getElementById('componente-form');
 const tablaBody = document.getElementById('tabla-body');
@@ -64,7 +63,7 @@ form.addEventListener('submit', async (e) => {
 // Función para Consultar y Listar Registros con Filtros
 async function obtenerComponentes() {
   try {
-    let query = supabase.from('componentes').select('*');
+    let query = supabaseClient.from('componentes').select('*');
 
     const search = searchInput.value.trim();
     const cat = filterCategoria.value;
